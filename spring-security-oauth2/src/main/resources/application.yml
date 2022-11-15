@@ -16,9 +16,9 @@ spring:
             scope: openid,profile,email
         provider:
           keycloak:
+            issuerUri: http://localhost:8080/realms/oauth2
             authorizationUri: http://localhost:8080/realms/oauth2/protocol/openid-connect/auth
             tokenUri: http://localhost:8080/realms/oauth2/protocol/openid-connect/token
-            ossuerUri: http://localhost:8080/realms/oauth2
             userInfoUri: http://localhost:8080/realms/oauth2/protocol/openid-connect/userinfo
             jwkSetUri: http://localhost:8080/realms/oauth2/protocol/openid-connect/certs
             userNameAttribute: preferred_username
