@@ -1,7 +1,6 @@
 package io.security.oauth2.springsecurityoauth2.config.part2_OAuth2Client_oauth2Login;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +24,11 @@ public class OAuth2ClientConfig2 {
                 //.permitAll()
                 .anyRequest()
                 .authenticated()
+        );
+
+        http.oauth2Login(oauth2 -> oauth2.loginPage("/login")
+            .authorizationEndpoint(authorizationEndpointConfig ->
+                    authorizationEndpointConfig.baseUri("/oauth2/v1/authorization"))
         );
 
 //        http.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
